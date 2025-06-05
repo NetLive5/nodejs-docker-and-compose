@@ -1,5 +1,7 @@
-
+# Этап 1: билд
 FROM node:16-alpine AS builder
+
+RUN apk add --no-cache python3 make g++
 
 WORKDIR /app
 
@@ -7,9 +9,7 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
-
 RUN npm run build
-
 
 FROM node:16-alpine
 
