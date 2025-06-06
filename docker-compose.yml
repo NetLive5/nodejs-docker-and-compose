@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: kupipodariday-db
+    restart: always
+    environment:
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: student
+      POSTGRES_DB: kupipodariday
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  backend:
+    build:
+      context: ./backend
+    container_name: kupipodariday-backend
+    restart: always
+    env_file:
+      - ./backend/.env
+    ports:
+      - '4000:4000'
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: kupipodariday-frontend
+    restart: always
+    env_file:
+      - ./frontend/.env
+    ports:
+      - '8081:80'
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
