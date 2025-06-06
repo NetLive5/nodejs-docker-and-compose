@@ -1,0 +1,5 @@
+backend/*.tar
+frontend/*.tar
+**/node_modules/
+.env
+
