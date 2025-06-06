@@ -1,0 +1,31 @@
+# Общие
+*.log
+*.env
+*.tar
+.DS_Store
+
+# node_modules
+**/node_modules/
+
+# build-артефакты
+frontend/build/
+frontend/dist/
+
+# Кэш
+**/.cache/
+**/.next/
+**/.vite/
+**/.parcel-cache/
+
+# IDE
+.vscode/
+.idea/
+*.sw?
+
+# Docker
+**/docker-compose.override.yml
+**/docker-compose.*.yml
+
+# Системные файлы macOS
+._*
+Thumbs.db
