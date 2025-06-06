@@ -35,3 +35,5 @@ frontend/.parcel-cache/
 *.swp
 .idea/
 .vscode/
+nodejs-docker-and-compose.git/
+nodejs-docker-and-compose.git.bfg-report/
